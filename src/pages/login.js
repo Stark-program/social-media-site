@@ -1,4 +1,8 @@
 import { GoogleLogin } from "react-google-login";
+import FacebookLogin from "react-facebook-login";
+
+import dotenv from "dotenv";
+dotenv.config();
 
 function RenderLogin() {
   /* 
@@ -13,28 +17,21 @@ function RenderLogin() {
   const onFailure = (res) => {
     console.log("Login Failed!", res);
   };
+  const responseFacebook = (response) => {
+    console.log(response);
+  };
   return (
     <div class="flex flex-col w-full max-w-md px-4 py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10">
       <div class="self-center mb-6 text-xl font-light text-gray-600 sm:text-2xl dark:text-white">
         Login To Your Account
       </div>
       <div class="flex gap-4 item-center">
-        <button
-          type="button"
-          class="py-2 px-4 flex justify-center items-center  bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
-        >
-          <svg
-            width="20"
-            height="20"
-            fill="currentColor"
-            class="mr-2"
-            viewBox="0 0 1792 1792"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z"></path>
-          </svg>
-          Facebook
-        </button>
+        <FacebookLogin
+          appId="306794214794314"
+          autoLoad={true}
+          fields="name,email,picture"
+          callback={responseFacebook}
+        />
 
         <GoogleLogin
           clientId="631514679596-5am9t15hoitr0uep7307d66ts6inrrm3.apps.googleusercontent.com"
