@@ -1,9 +1,6 @@
 import { GoogleLogin } from "react-google-login";
 import FacebookLogin from "react-facebook-login";
 
-import dotenv from "dotenv";
-dotenv.config();
-
 function RenderLogin() {
   /* 
     Logic we need to write: 
@@ -27,14 +24,14 @@ function RenderLogin() {
       </div>
       <div class="flex gap-4 item-center">
         <FacebookLogin
-          appId="306794214794314"
+          appId={process.env.REACT_APP_FACEBOOK_TEST_CLIENT_ID}
           autoLoad={true}
           fields="name,email,picture"
           callback={responseFacebook}
         />
 
         <GoogleLogin
-          clientId="631514679596-5am9t15hoitr0uep7307d66ts6inrrm3.apps.googleusercontent.com"
+          clientId={process.env.REACT_APP_WEBSITE_GOOGLE_LOGIN_CLIENT_ID}
           buttonText="Login"
           onSuccess={onSuccess}
           onFailure={onFailure}
