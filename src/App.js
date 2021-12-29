@@ -1,6 +1,7 @@
 import "./App.css";
 import RenderLogin from "./pages/login";
 import RenderProfile from "./pages/profile";
+import RenderSignup from "./pages/signup";
 import { useState } from "react";
 import {
   BrowserRouter,
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<RenderLogin />} />
         <Route path="/profile" element={<RenderProfile />} />
+        <Route path="/signup" element={<RenderSignup />} />
       </Routes>
     </div>
   );
