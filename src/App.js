@@ -2,6 +2,7 @@ import "./App.css";
 import RenderLogin from "./pages/login";
 import RenderProfile from "./pages/profile";
 import RenderSignup from "./pages/signup";
+import RenderLandingPage from "./pages/landingPage";
 import { useState } from "react";
 import {
   BrowserRouter,
@@ -16,6 +17,7 @@ function App() {
   return (
     <div>
       <Routes>
+        <Route path="/" element={<RenderLandingPage />} />
         <Route path="/login" element={<RenderLogin />} />
         <Route path="/profile" element={<RenderProfile />} />
         <Route path="/signup" element={<RenderSignup />} />
