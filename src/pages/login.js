@@ -1,6 +1,5 @@
 import { GoogleLogin } from "react-google-login";
 import FacebookLogin from "react-facebook-login";
-import { useHistory } from "react-router-dom";
 
 function RenderLogin() {
   /* 
@@ -9,12 +8,7 @@ function RenderLogin() {
         2. go to google to sign in when google button is clicked. 
         3. connect to database to retrieve user credentials via email and password. 
     */
-  const history = useHistory();
 
-  const routeSignUp = () => {
-    let path = "/signup";
-    history.push(path);
-  };
   const onGoogleSuccess = (response) => {
     console.log("Login Succesful!", response);
   };

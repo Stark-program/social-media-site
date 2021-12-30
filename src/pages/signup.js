@@ -1,4 +1,19 @@
+import axios from "axios";
+import { useState } from "react";
+
 function RenderSignup() {
+  let url = "http://localhost:3000";
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  let signupInfo = {
+    username: userName,
+    password: password,
+  };
+  const sendSignupInfo = () => {
+    axios.post(`http://localhost:3001/signup`, signupInfo).then((res) => {
+      console.log(res);
+    });
+  };
   return (
     <div className="bg-zinc-500 flex justify-center min-h-screen">
       <div className="flex items-center">
@@ -27,6 +42,7 @@ function RenderSignup() {
                     id="sign-in-email"
                     class=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                     placeholder="Your email"
+                    onChange={(e) => setUserName(e.target.value)}
                   />
                 </div>
               </div>
@@ -48,6 +64,7 @@ function RenderSignup() {
                     id="sign-in-email"
                     class=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                     placeholder="Your password"
+                    onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
               </div>
@@ -56,8 +73,8 @@ function RenderSignup() {
               </div>
               <div class="flex w-full">
                 <button
-                  type="submit"
                   class="py-2 px-4  bg-purple-600 hover:bg-purple-700 focus:ring-purple-500 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+                  onClick={sendSignupInfo}
                 >
                   Signup
                 </button>
@@ -69,7 +86,9 @@ function RenderSignup() {
               href="#"
               target="_blank"
               class="inline-flex items-center text-xs font-thin text-center text-gray-500 hover:text-gray-700 dark:text-gray-100 dark:hover:text-white"
-            ></a>
+            >
+              <span class="ml-2">Already signed up? Click here to log in</span>
+            </a>
           </div>
         </div>
       </div>
