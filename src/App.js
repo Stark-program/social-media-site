@@ -14,13 +14,11 @@ import {
 
 function App() {
   return (
-    <div>
-      <Routes>
-        <Route path="/" element={<RenderLogin />} />
-        <Route path="/profile" element={<RenderProfile />} />
-        <Route path="/signup" element={<RenderSignup />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route exact path="/" element={<RenderLogin />} />
+      <Route path="/profile" element={<RenderProfile />} />
+      <Route path="/signup" element={<RenderSignup />} />
+    </Routes>
   );
 }
 

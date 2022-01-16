@@ -1,5 +1,6 @@
 import { GoogleLogin } from "react-google-login";
 import FacebookLogin from "react-facebook-login";
+import { useNavigate } from "react-router-dom";
 
 function RenderLogin() {
   /* 
@@ -8,15 +9,17 @@ function RenderLogin() {
         2. go to google to sign in when google button is clicked. 
         3. connect to database to retrieve user credentials via email and password. 
     */
-
+  const navigate = useNavigate();
   const onGoogleSuccess = (response) => {
     console.log("Login Succesful!", response);
+    return navigate("/profile");
   };
   const onGoogleFailure = (res) => {
     console.log("Login Failed!", res);
   };
   const responseFacebook = (response) => {
     console.log(response);
+    return navigate("/profile");
   };
   return (
     <div className="bg-zinc-500 flex justify-center min-h-screen">
