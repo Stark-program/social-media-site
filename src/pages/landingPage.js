@@ -1,13 +1,12 @@
+import socialmediaimage from "./cogwheel.svg";
+import colorfulsvglogo from "./startprofile.svg";
 function RenderLandingPage() {
   return (
     <div>
       <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-slate-800 mb-3">
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className=" relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-            <a
-              className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap text-white"
-              href="#pablo"
-            >
+            <a className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap text-white">
               A social media site that makes you, more you!
             </a>
             <button
@@ -46,17 +45,46 @@ function RenderLandingPage() {
           </div>
         </div>
       </nav>
-      <div className="lg:columns-2">
-        <div className="text-[100px] lg:text-[200px]">youU!</div>
-        <div>
-          <h2>Image here</h2>
-          <h2>title</h2>
+      <div className="flex flex-col lg:flex-row flex-wrap items-center place-items-center">
+        <div className="text-[100px] lg:text-[200px] lg:basis-1/2">youU!</div>
+        <div className="flex justify-center lg:basis-1/2">
+          <img src={socialmediaimage} />
         </div>
       </div>
-      <div className="lg:columns-2">
-        <div>Image here</div>
-        <div>
-          <h2>Title here</h2>
+      <div className="flex flex-col lg:flex-row justify-center items-center">
+        <div className="flex justify-center lg:basis-1/2">
+          <img src={colorfulsvglogo} />
+        </div>
+        <div className="flex justify-center lg:basis-1/2">
+          <div>
+            <h2>Title here</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+              mollitia, molestiae quas vel sint commodi repudiandae consequuntur
+              voluptatum laborum numquam blanditiis harum quisquam eius sed odit
+              fugiat iusto fuga praesentium optio, eaque rerum! Provident
+              similique accusantium nemo autem. Veritatis obcaecati tenetur iure
+              eius earum ut molestias architecto voluptate aliquam nihil,
+              eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
+              tenetur error, harum nesciunt ipsum debitis quas aliquid.
+              Reprehenderit, quia. Quo neque error repudiandae fuga? Ipsa
+              laudantium molestias eos sapiente officiis modi at sunt excepturi
+              expedita sint? Sed quibusdam recusandae alias error harum maxime
+              adipisci amet laborum. Perspiciatis minima nesciunt dolorem!
+              Officiis iure rerum voluptates a cumque velit quibusdam sed amet
+              tempora. Sit laborum ab, eius fugit doloribus tenetur fugiat,
+              temporibus enim commodi iusto libero magni deleniti quod quam
+              consequuntur! Commodi minima excepturi repudiandae velit hic
+              maxime doloremque. Quaerat provident commodi consectetur veniam
+              similique ad earum omnis ipsum saepe, voluptas, hic voluptates
+              pariatur est explicabo fugiat, dolorum eligendi quam cupiditate
+              excepturi mollitia maiores labore suscipit quas? Nulla, placeat.
+              Voluptatem quaerat non architecto ab laudantium modi minima sunt
+              esse temporibus sint culpa, recusandae aliquam numquam totam
+              ratione voluptas quod exercitationem fuga. Possimus quis earum
+              veniam quasi aliquam eligendi, placeat qui corporis!
+            </p>
+          </div>
         </div>
       </div>
     </div>
