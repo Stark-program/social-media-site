@@ -13,19 +13,19 @@ function RenderLogin() {
     */
   const navigate = useNavigate();
   const onGoogleSuccess = (response) => {
-    console.log("Login Succesful!", response);
     return navigate("/profile");
   };
   const onGoogleFailure = (res) => {
-    console.log("Login Failed!", res);
+    alert("Google Login Failed");
   };
   const responseFacebook = (response) => {
-    console.log(response);
-    return navigate("/profile");
+    if (response.id) {
+      return navigate("/profile");
+    } else alert("Facebook Login Failed");
   };
   const responseCredentialLogin = (response) => {
     console.log(response);
-    return navigate("/profile");
+    // return navigate("/profile");
   };
   return (
     <div className="bg-zinc-500 flex justify-center min-h-screen">
@@ -123,7 +123,9 @@ function RenderLogin() {
               target="_blank"
               class="inline-flex items-center text-xs font-thin text-center text-gray-500 hover:text-gray-700 dark:text-gray-100 dark:hover:text-white"
             >
-              <span class="ml-2">You don't have an account?</span>
+              <span class="ml-2" onClick={() => navigate("/signup")}>
+                You don't have an account? Click here to sign up
+              </span>
             </a>
           </div>
         </div>

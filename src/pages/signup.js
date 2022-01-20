@@ -1,4 +1,23 @@
+import axios from "axios";
+import { useState } from "react";
+
 function RenderSignup() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  let url = "http://localhost:3001/";
+  function sendUserSignup(email, password) {
+    let data = {
+      userEmail: email,
+      userPassword: password,
+    };
+
+    axios.post(`${url}userSignup`, data).then((res) => {
+      console.log(res);
+    });
+    setEmail("");
+    setPassword("");
+  }
   return (
     <div className="bg-zinc-500 flex justify-center min-h-screen">
       <div className="flex items-center">
@@ -27,6 +46,8 @@ function RenderSignup() {
                     id="sign-in-email"
                     class=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                     placeholder="Your email"
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
                   />
                 </div>
               </div>
@@ -48,6 +69,8 @@ function RenderSignup() {
                     id="sign-in-email"
                     class=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                     placeholder="Your password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
               </div>
@@ -58,6 +81,9 @@ function RenderSignup() {
                 <button
                   type="submit"
                   class="py-2 px-4  bg-purple-600 hover:bg-purple-700 focus:ring-purple-500 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+                  onClick={() => {
+                    sendUserSignup(email, password);
+                  }}
                 >
                   Signup
                 </button>
