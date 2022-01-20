@@ -4,7 +4,7 @@ require("dotenv").config();
 
 const collectionName = "devUsers";
 
-const signUpSchema = new Schema({
+const userSchema = new Schema({
   name: {
     type: String,
     unique: true,
@@ -17,6 +17,6 @@ const signUpSchema = new Schema({
   },
 });
 
-const sign_Up_Schema = mongoose.model(collectionName, signUpSchema);
+const user_Schema = mongoose.model(collectionName, userSchema);
 
 module.exports = signUpSchema;
