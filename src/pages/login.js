@@ -1,6 +1,8 @@
 import { GoogleLogin } from "react-google-login";
 import FacebookLogin from "react-facebook-login";
+
 import { useNavigate } from "react-router-dom";
+import { AiFillFacebook } from "react-icons/ai";
 
 function RenderLogin() {
   /* 
@@ -32,13 +34,14 @@ function RenderLogin() {
           <div class="self-center mb-6 text-xl font-light text-gray-600 sm:text-2xl dark:text-white">
             Login To Your Account
           </div>
-          <div class="flex gap-4 item-center">
+          <div class="flex item-center justify-between">
             <FacebookLogin
-              classname="py-2 px-4 flex justify-center items-center  bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+              cssClass="flex rounded bg-google w-28 h-11 inline-flex items-center"
+              icon={<AiFillFacebook className="h-6 w-10" />}
               appId={process.env.REACT_APP_FACEBOOK_TEST_CLIENT_ID}
-              // autoLoad={true}
               fields="name,email,picture"
               callback={responseFacebook}
+              textButton="Login"
             />
 
             <GoogleLogin
@@ -47,7 +50,6 @@ function RenderLogin() {
               onSuccess={onGoogleSuccess}
               onFailure={onGoogleFailure}
               cookiePolicy={"single_host_origin"}
-              // isSignedIn={true}
             />
           </div>
           <div class="mt-8">
