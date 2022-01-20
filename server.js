@@ -3,10 +3,10 @@ const express = require("express");
 const mongoose = require("mongoose");
 var ObjectId = require("mongodb").ObjectID;
 const app = express();
-
+const userSchema = require("./schemas/userSchema");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-
+const bcrypt = require("bcrypt");
 const uri = process.env.DEV_MONGODB;
 console.log(uri);
 
