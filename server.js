@@ -26,8 +26,40 @@ db.once("open", () => {
   console.log("Connection established");
 });
 
-app.post("/userSignup", (req, res) => {
+app.post("/userSignup", async (req, res) => {
   console.log(req.body);
+  let email = req.body.userEmail;
+  let pass = req.body.userPassword;
+
+  let hashPass = await bcrypt.hash(pass, 10);
+
+  user = new userSchema({
+    email: email,
+    password: hashPass,
+  });
+  console.log("user being saved", user);
+  try {
+    userSchema.exists({ email: email }, async function (err, result) {
+      console.log("this is result", result);
+      if (err) {
+        res.send(err);
+        console.log(err);
+      } else if (result || email === null) {
+        res.send({
+          status: 409,
+          message: "Username is already taken, please enter in a new username",
+        });
+      } else if (result === false || result === null) {
+        await user.save((err, user) => {
+          console.log("this is user", user);
+          if (err) console.log(err);
+          res.status(201).send();
+        });
+      }
+    });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
 });
 
 app.listen(3001, () => {

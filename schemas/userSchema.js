@@ -5,10 +5,12 @@ require("dotenv").config();
 const collectionName = "devUsers";
 
 const userSchema = new Schema({
-  name: {
+  email: {
     type: String,
     unique: true,
     required: true,
+    index: true,
+    sparse: true,
   },
   password: {
     type: String,
@@ -19,4 +21,4 @@ const userSchema = new Schema({
 
 const user_Schema = mongoose.model(collectionName, userSchema);
 
-module.exports = signUpSchema;
+module.exports = user_Schema;
